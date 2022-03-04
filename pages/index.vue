@@ -46,12 +46,12 @@ import { database } from '~/static/data.json'
 
 export default {
   name: 'IndexPage',
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, $config: { apiSecret } }) {
     const series = database.map(e => e.id)
     const id = series[Math.floor(Math.random() * series.length)]
 
     const show = await $axios.$get(
-      `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.TMDB_KEY}`
+      `https://api.themoviedb.org/3/tv/${id}?api_key=${apiSecret}`
     )
 
     return { show }
