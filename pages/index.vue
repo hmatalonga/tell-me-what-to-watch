@@ -11,12 +11,40 @@
             :src="`https://image.tmdb.org/t/p/w500/${show.poster_path}`"
             :alt="show.name"
           />
-          <div class="inline-flex absolute -bottom-2 -right-2 font-title font-bold text-4xl w-24 h-24 rounded-full" :class="rating">
-            <div class="w-full flex items-center justify-center text-center">{{ show.vote_average }}</div>
+          <div
+            class="inline-flex absolute -bottom-2 -right-2 font-title font-bold text-4xl w-24 h-24 rounded-full"
+            :class="rating"
+          >
+            <div class="w-full flex items-center justify-center text-center">
+              {{ show.vote_average }}
+            </div>
           </div>
         </div>
-        <div class="col-span-2 flex items-center">
-          <div class="flex flex-col space-y-12 px-6">
+        <div class="col-span-2">
+          <div class="flex flex-col space-y-12 px-6 py-4">
+            <div class="action mb-4">
+              <button
+                type="button"
+                @click="fetchShow()"
+                class="inline-flex items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                <svg
+                  class="-ml-1 mr-3 h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"
+                  ></path>
+                </svg>
+                Pick Something
+              </button>
+            </div>
             <div class="header">
               <div class="font-title font-bold text-5xl text-white mb-2">
                 {{ show.name }}
@@ -26,7 +54,9 @@
                 <span>{{ genres }}</span>
                 <span>{{ show.episode_run_time[0] }}m</span>
               </div>
-              <div class="font-title text-xl text-slate-200 italic mt-6">{{ show.tagline }}</div>
+              <div class="font-title text-xl text-slate-200 italic mt-6">
+                {{ show.tagline }}
+              </div>
             </div>
             <div class="overview">
               <div class="font-title font-bold text-2xl text-white mb-2">
@@ -46,15 +76,31 @@ import { database } from '~/static/data.json'
 
 export default {
   name: 'IndexPage',
+  data() {
+    return {
+      series: database.map((e) => e.id),
+    }
+  },
   async asyncData({ $axios, $config: { apiSecret } }) {
-    const series = database.map(e => e.id)
+    const series = database.map((e) => e.id)
     const id = series[Math.floor(Math.random() * series.length)]
 
     const show = await $axios.$get(
       `https://api.themoviedb.org/3/tv/${id}?api_key=${apiSecret}`
     )
-
     return { show }
+  },
+  methods: {
+    selectShowId() {
+      return this.series[Math.floor(Math.random() * this.series.length)]
+    },
+    async fetchShow() {
+      const id = this.selectShowId()
+      const show = await this.$axios.$get(
+        `https://api.themoviedb.org/3/tv/${id}?api_key=${this.$config.apiSecret}`
+      )
+      this.show = show
+    },
   },
   computed: {
     latestYear() {
