@@ -8,18 +8,18 @@
         <div class="col-span-1 relative px-8 mx-auto">
           <div class="max-w-sm flex items-center">
             <img
-            class="w-full h-auto rounded-lg"
-            :src="`https://image.tmdb.org/t/p/w500/${show.poster_path}`"
-            :alt="show.name"
-          />
-          <div
-            class="inline-flex absolute -bottom-2 right-2 font-title font-bold text-2xl w-16 h-16 sm:w-24 sm:h-24 sm:text-4xl rounded-full"
-            :class="rating"
-          >
-            <div class="w-full flex items-center justify-center text-center">
-              {{ show.vote_average }}
+              class="w-full h-auto rounded-lg"
+              :src="`https://image.tmdb.org/t/p/w500/${show.poster_path}`"
+              :alt="show.name"
+            />
+            <div
+              class="inline-flex absolute -bottom-2 right-2 font-title font-bold text-2xl w-16 h-16 sm:w-24 sm:h-24 sm:text-4xl rounded-full"
+              :class="rating"
+            >
+              <div class="w-full flex items-center justify-center text-center">
+                {{ show.vote_average }}
+              </div>
             </div>
-          </div>
           </div>
         </div>
         <div class="col-span-1 sm:col-span-2 px-8">
@@ -48,7 +48,9 @@
               </button>
             </div>
             <div class="header">
-              <div class="font-title font-bold text-3xl sm:text-5xl text-white mb-2">
+              <div
+                class="font-title font-bold text-3xl sm:text-5xl text-white mb-2"
+              >
                 {{ show.name }}
                 <span class="text-gray-300">({{ latestYear }})</span>
               </div>
@@ -80,12 +82,12 @@ export default {
   name: 'IndexPage',
   data() {
     return {
-      series: database.map((e) => e.id),
+      series: database.map((e) => e.id).sort((a, b) => 0.5 - Math.random()),
     }
   },
   async asyncData({ $axios, $config: { apiSecret } }) {
-    const series = database.map((e) => e.id)
-    const id = series[Math.floor(Math.random() * series.length)]
+    const series = database.map((e) => e.id).sort((a, b) => 0.5 - Math.random())
+    const id = series.pop()
 
     const show = await $axios.$get(
       `https://api.themoviedb.org/3/tv/${id}?api_key=${apiSecret}`
@@ -93,11 +95,15 @@ export default {
     return { show }
   },
   methods: {
-    selectShowId() {
-      return this.series[Math.floor(Math.random() * this.series.length)]
-    },
     async fetchShow() {
-      const id = this.selectShowId()
+      if (this.series.length == 0) {
+        this.series = database
+          .map((e) => e.id)
+          .sort((a, b) => 0.5 - Math.random())
+      }
+
+      const id = this.series.pop()
+
       const show = await this.$axios.$get(
         `https://api.themoviedb.org/3/tv/${id}?api_key=${this.$config.apiSecret}`
       )
