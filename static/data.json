@@ -1,18 +1,31 @@
 {
-    "database": [
-        {"id": 83251, "title": "Dirty John"},
-        {"id": 108978, "title": "Reacher"},
-        {"id": 71914, "title": "The Wheel of Time"},
-        {"id": 88329, "title": "Hawkeye"},
-        {"id": 85723, "title": "Raised by Wolves"},
-        {"id": 94605, "title": "Arcane"},
-        {"id": 117488, "title": "Yellowjackets"},
-        {"id": 73586, "title": "Yellowstone"},
-        {"id": 69478, "title": "The Handmaid's Tale"},
-        {"id": 69740, "title": "Ozark"},
-        {"id": 93740, "title": "Foundation"},
-        {"id": 91239, "title": "Bridgerton"},
-        {"id": 72750, "title": "Killing Eve"},
-        {"id": 63351, "title": "Narcos"}
-    ]
+  "database": [
+    { "id": 83251, "title": "Dirty John" },
+    { "id": 108978, "title": "Reacher" },
+    { "id": 71914, "title": "The Wheel of Time" },
+    { "id": 88329, "title": "Hawkeye" },
+    { "id": 85723, "title": "Raised by Wolves" },
+    { "id": 94605, "title": "Arcane" },
+    { "id": 117488, "title": "Yellowjackets" },
+    { "id": 73586, "title": "Yellowstone" },
+    { "id": 69478, "title": "The Handmaid's Tale" },
+    { "id": 69740, "title": "Ozark" },
+    { "id": 93740, "title": "Foundation" },
+    { "id": 91239, "title": "Bridgerton" },
+    { "id": 72750, "title": "Killing Eve" },
+    { "id": 63351, "title": "Narcos" },
+    { "id": 62852, "title": "Billions" },
+    { "id": 76331, "title": "Succession" },
+    { "id": 93287, "title": "The Flight Attendant" },
+    { "id": 112077, "title": "Scenes from a Marriage" },
+    { "id": 82816, "title": "Lovecraft Country" },
+    { "id": 115004, "title": "Mare of Easttown" },
+    { "id": 81747, "title": "Tell Me a Story" },
+    { "id": 86430, "title": "Your Honor" },
+    { "id": 39852, "title": "The Sinner" },
+    { "id": 127865, "title": "The Chestnut Man" },
+    { "id": 81355, "title": "When They See Us" },
+    { "id": 71769, "title": "The Alienist" },
+    { "id": 99002, "title": "Piecies of Her" }
+  ]
 }
