@@ -94,6 +94,13 @@ export default {
     )
     return { show }
   },
+  mounted() {
+    window.onkeypress = (event) => {
+      if (event.which == 32) {
+        this.fetchShow()
+      }
+    }
+  },
   methods: {
     async fetchShow() {
       if (this.series.length == 0) {
