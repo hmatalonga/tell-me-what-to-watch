@@ -1,4 +1,6 @@
-# tell-me-what-to-watch
+# Tell me What to Watch
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ca68124c-b239-47fa-aef9-ccc5ba06fb81/deploy-status)](https://app.netlify.com/sites/serene-benz-9f7dd2/deploys)
 
 ## Build Setup
 
