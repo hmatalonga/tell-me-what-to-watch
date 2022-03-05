@@ -13,7 +13,7 @@
             :alt="show.name"
           />
           <div
-            class="inline-flex absolute -bottom-2 -right-2 font-title font-bold text-2xl w-16 h-16 sm:w-24 sm:h-24 sm:text-4xl rounded-full"
+            class="inline-flex absolute -bottom-2 right-2 font-title font-bold text-2xl w-16 h-16 sm:w-24 sm:h-24 sm:text-4xl rounded-full"
             :class="rating"
           >
             <div class="w-full flex items-center justify-center text-center">
@@ -48,7 +48,7 @@
               </button>
             </div>
             <div class="header">
-              <div class="font-title font-bold text-5xl text-white mb-2">
+              <div class="font-title font-bold text-4xl sm:text-5xl text-white mb-2">
                 {{ show.name }}
                 <span class="text-gray-300">({{ latestYear }})</span>
               </div>
