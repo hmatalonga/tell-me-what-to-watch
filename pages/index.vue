@@ -4,25 +4,27 @@
     :style="`background: linear-gradient(to right, rgba(31.5, 31.5, 31.5, 1) 150px, rgba(31.5, 31.5, 31.5, 0.84) 100%), url(https://image.tmdb.org/t/p/original/${show.backdrop_path}) no-repeat scroll 50%/cover transparent;`"
   >
     <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-3 gap-4">
-        <div class="col-span-1 relative">
-          <img
-            class="max-w-sm h-auto rounded-lg"
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="col-span-1 relative px-6 mx-auto sm:mx-0">
+          <div class="max-w-sm">
+            <img
+            class="w-full h-auto rounded-lg"
             :src="`https://image.tmdb.org/t/p/w500/${show.poster_path}`"
             :alt="show.name"
           />
           <div
-            class="inline-flex absolute -bottom-2 -right-2 font-title font-bold text-4xl w-24 h-24 rounded-full"
+            class="inline-flex absolute -bottom-2 -right-2 font-title font-bold text-2xl w-16 h-16 sm:w-24 sm:h-24 sm:text-4xl rounded-full"
             :class="rating"
           >
             <div class="w-full flex items-center justify-center text-center">
               {{ show.vote_average }}
             </div>
           </div>
+          </div>
         </div>
-        <div class="col-span-2">
-          <div class="flex flex-col space-y-12 px-6 py-4">
-            <div class="action mb-4">
+        <div class="col-span-1 sm:col-span-2 px-6">
+          <div class="flex flex-col space-y-12 py-4">
+            <div class="action mb-4 mx-auto sm:mx-0">
               <button
                 type="button"
                 @click="fetchShow()"
