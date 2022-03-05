@@ -1,11 +1,11 @@
 <template>
   <div
-    class="flex items-center justify-center h-screen"
+    class="flex items-center justify-center sm:h-screen"
     :style="`background: linear-gradient(to right, rgba(31.5, 31.5, 31.5, 1) 150px, rgba(31.5, 31.5, 31.5, 0.84) 100%), url(https://image.tmdb.org/t/p/original/${show.backdrop_path}) no-repeat scroll 50%/cover transparent;`"
   >
-    <div class="max-w-7xl mx-auto py-8">
+    <div class="max-w-7xl mx-auto py-12">
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="col-span-1 relative px-6 mx-auto">
+        <div class="col-span-1 relative px-8 mx-auto">
           <div class="max-w-sm">
             <img
             class="w-full h-auto rounded-lg"
@@ -22,8 +22,8 @@
           </div>
           </div>
         </div>
-        <div class="col-span-1 sm:col-span-2 px-6">
-          <div class="flex flex-col space-y-12 py-4">
+        <div class="col-span-1 sm:col-span-2 px-8">
+          <div class="flex flex-col space-y-12 py-6">
             <div class="action mb-4 mx-auto sm:mx-0">
               <button
                 type="button"
