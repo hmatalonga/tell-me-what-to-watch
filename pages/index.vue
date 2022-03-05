@@ -6,7 +6,7 @@
     <div class="max-w-7xl mx-auto py-12">
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div class="col-span-1 relative px-8 mx-auto">
-          <div class="max-w-sm">
+          <div class="max-w-sm flex items-center">
             <img
             class="w-full h-auto rounded-lg"
             :src="`https://image.tmdb.org/t/p/w500/${show.poster_path}`"
@@ -48,7 +48,7 @@
               </button>
             </div>
             <div class="header">
-              <div class="font-title font-bold text-4xl sm:text-5xl text-white mb-2">
+              <div class="font-title font-bold text-3xl sm:text-5xl text-white mb-2">
                 {{ show.name }}
                 <span class="text-gray-300">({{ latestYear }})</span>
               </div>
