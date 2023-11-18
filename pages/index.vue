@@ -95,18 +95,18 @@ export default {
     return { show }
   },
   mounted() {
-    window.onkeypress = (event) => {
-      if (event.which == 32) {
+    window.addEventListener('keypress', (event) => {
+      if (event.key === ' ') {
         this.fetchShow()
       }
-    }
+    })
   },
   methods: {
     async fetchShow() {
       if (this.series.length == 0) {
         this.series = database
           .map((e) => e.id)
-          .sort((a, b) => 0.5 - Math.random())
+          .sort((_, _) => 0.5 - Math.random())
       }
 
       const id = this.series.pop()
