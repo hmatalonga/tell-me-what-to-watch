@@ -52,6 +52,6 @@ export default {
   build: {},
 
   publicRuntimeConfig: {
-    apiSecret: process.env.TMDB_KEY
-  }
+    apiSecret: process.env.TMDB_KEY,
+  },
 }
