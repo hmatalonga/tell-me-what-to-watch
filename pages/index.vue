@@ -17,7 +17,7 @@
               :class="rating"
             >
               <div class="w-full flex items-center justify-center text-center">
-                {{ show.vote_average }}
+                {{ show.vote_average.toFixed() }}
               </div>
             </div>
           </div>
