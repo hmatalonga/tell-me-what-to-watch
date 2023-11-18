@@ -106,7 +106,7 @@ export default {
       if (this.series.length == 0) {
         this.series = database
           .map((e) => e.id)
-          .sort((_, _) => 0.5 - Math.random())
+          .sort((a, b) => 0.5 - Math.random())
       }
 
       const id = this.series.pop()
